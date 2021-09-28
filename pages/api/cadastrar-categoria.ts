@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
-import { api } from '../../services/api';
+import { service } from '../../services/api';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
@@ -12,12 +12,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         res.json({ message: 'Hello NextJs Cors!' });
 
-        const data = await api.post(
+        const result = await service.post(
             "CategoriaService.svc/CadastrarCategoria",  
             req.body.param
         );
 
-        return data;
+        return result;
     } catch (error: any) {
         console.error(error)
         return res.status(error.status || 500).end(error.message)
