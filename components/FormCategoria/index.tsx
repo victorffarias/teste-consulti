@@ -3,6 +3,7 @@ import Button from '../Button';
 import styles from './styles.module.scss';
 import { FormEvent, useState } from 'react';
 import { api } from '../../services/api';
+import { useRouter } from 'next/dist/client/router';
 
 interface CategoriaProps {
     Descricao: string;
@@ -25,6 +26,7 @@ export default function FormCategoria() {
 
     }
     const [categoria, setCategoria] = useState(categoriaVazia);
+    const router = useRouter();
 
     function setFormData(inputGroup: InputGroupProps){
         setCategoria({
@@ -41,10 +43,13 @@ export default function FormCategoria() {
             {param: categoria}
         )
 
-        console.log(result);
-        
-        return result;
+        alert("Categoria cadastrada com sucesso")
 
+        router.push('/categorias')
+    }
+
+    function handleVoltar(){
+        router.push('/categorias');
     }
     return (
         <form onSubmit={handleSave}>
@@ -53,7 +58,7 @@ export default function FormCategoria() {
             <Input name="descricao" label="Descrição" onChange={(e) => {setFormData({inputName: "Descricao", value: e.target.value})}}/>
             <Input name="ordem" label="Ordem" onChange={(e) => {setFormData({inputName: "Ordem", value: e.target.value})}}/>
             <footer className={styles.footer}>
-                <Button type="button" isOutlined={true}>Voltar</Button>
+                <Button type="button" isOutlined={true} onClick={handleVoltar}>Voltar</Button>
                 <Button type="submit">Salvar</Button>
             </footer>
         </form>
