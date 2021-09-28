@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             optionsSuccessStatus: 200
         });
 
-        res.json({ message: 'Hello NextJs Cors!' });
+        res.json({ message: 'CORS Preflight' });
 
         const result = await service.post(
             "CategoriaService.svc/CadastrarCategoria",  
