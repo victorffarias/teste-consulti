@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { resolveHref } from 'next/dist/shared/lib/router/router';
 import { service } from '../../services/api';
 import usePreflight from './usePreflight';
 
