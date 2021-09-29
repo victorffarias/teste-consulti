@@ -4,4 +4,6 @@ export const service = axios.create({
     baseURL: "http://tst.sportibrasil.com.br/Services/"
 })
 
-export const api = axios.create({});
+export const api = axios.create({
+    baseURL: "http://localhost:3000"
+});
