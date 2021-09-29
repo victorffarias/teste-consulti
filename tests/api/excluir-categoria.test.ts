@@ -6,7 +6,7 @@ test('Atualizar categoria', async () => {
         method: "DELETE"
     })
 
-    req.query.id = 142;
+    req.query.id = 157;
 
 
     await handler(req, res);

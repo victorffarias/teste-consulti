@@ -28,14 +28,13 @@ export default function Index({ categorias }: IndexProps) {
     }
 
     function handleCadastrar() {
-        console.log("teste");
         router.push("categorias/cadastrar");
     }
 
     function handleConfirmDelete(categoriaId: number) {
         confirmAlert({
             title: "Atenção",
-            message: "Confirmma a exclusão do objeto?",
+            message: "Confirma a exclusão do objeto?",
             buttons: [
                 {
                     label: "Sim",
@@ -74,8 +73,9 @@ export default function Index({ categorias }: IndexProps) {
             <main>
                 <h1>Categorias</h1>
                 <div className={styles.buttonsWrapper}>
-                    <Button onClick={handleCadastrar}>Cadastrar</Button>
+                    <Button onClick={() => { handleCadastrar }}>Cadastrar</Button>
                 </div>
+
                 <table cellSpacing={0} >
                     <thead>
                         <tr>
